@@ -1,0 +1,93 @@
+{
+	"name": "adbws_bigdata_automated_cluster_small_9_1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "AzureDatabricks",
+		"connectVia": {
+			"referenceName": "SelfHostedIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		},
+		"parameters": {
+			"pipeline_datafactory": {
+				"type": "string",
+				"defaultValue": "@pipeline().DataFactory"
+			},
+			"pipeline_name": {
+				"type": "string",
+				"defaultValue": "@pipeline().Pipeline"
+			},
+			"pipeline_run_id": {
+				"type": "string",
+				"defaultValue": "@pipeline().RunId"
+			},
+			"tribo": {
+				"type": "string",
+				"defaultValue": "governanca-core"
+			},
+			"squad": {
+				"type": "string",
+				"defaultValue": "governanca"
+			},
+			"vsm": {
+				"type": "string",
+				"defaultValue": "na"
+			},
+			"app": {
+				"type": "string",
+				"defaultValue": "na"
+			},
+			"creator": {
+				"type": "string",
+				"defaultValue": "na"
+			}
+		},
+		"typeProperties": {
+			"domain": "https://adb-5634774381433770.10.azuredatabricks.net",
+			"authentication": "MSI",
+			"workspaceResourceId": "/subscriptions/cd7830ba-234d-4033-9d38-22306144b136/resourceGroups/rg-bigdata-dev/providers/Microsoft.Databricks/workspaces/adbws-bigdata-dev",
+			"instancePoolId": "0729-172729-nappy991-pool-UXTrBktq",
+			"newClusterVersion": "9.1.x-scala2.12",
+			"newClusterNumOfWorker": "2",
+			"newClusterSparkEnvVars": {
+				"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+			},
+			"newClusterCustomTags": {
+				"pipeline_datafactory": {
+					"value": "@linkedService().pipeline_datafactory",
+					"type": "Expression"
+				},
+				"pipeline_name": {
+					"value": "@linkedService().pipeline_name",
+					"type": "Expression"
+				},
+				"pipeline_run_id": {
+					"value": "@linkedService().pipeline_run_id",
+					"type": "Expression"
+				},
+				"tribo": {
+					"value": "@linkedService().tribo",
+					"type": "Expression"
+				},
+				"squad": {
+					"value": "@linkedService().squad",
+					"type": "Expression"
+				},
+				"vsm": {
+					"value": "@linkedService().vsm",
+					"type": "Expression"
+				},
+				"app": {
+					"value": "@linkedService().app",
+					"type": "Expression"
+				},
+				"creator": {
+					"value": "@linkedService().creator",
+					"type": "Expression"
+				}
+			},
+			"newClusterLogDestination": "dbfs:/mnt/logs/cluster_logs",
+			"newClusterInitScripts": []
+		},
+		"annotations": []
+	}
+}

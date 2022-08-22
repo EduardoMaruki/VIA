@@ -1,0 +1,59 @@
+{
+	"name": "adbws_bigdata_dev_instance_pool_medium_cluster_small",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "AzureDatabricks",
+		"connectVia": {
+			"referenceName": "SelfHostedIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		},
+		"parameters": {
+			"pipeline_datafactory": {
+				"type": "string",
+				"defaultValue": "@pipeline().DataFactory"
+			},
+			"pipeline_name": {
+				"type": "string",
+				"defaultValue": "@pipeline().Pipeline"
+			},
+			"pipeline_run_id": {
+				"type": "string",
+				"defaultValue": "@pipeline().RunId"
+			},
+			"squad": {
+				"type": "string",
+				"defaultValue": "governanca"
+			}
+		},
+		"annotations": [],
+		"typeProperties": {
+			"domain": "https://adb-5634774381433770.10.azuredatabricks.net",
+			"instancePoolId": "0729-172729-nappy991-pool-UXTrBktq",
+			"newClusterVersion": "7.3.x-scala2.12",
+			"newClusterNumOfWorker": "3",
+			"newClusterSparkEnvVars": {
+				"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+			},
+			"newClusterCustomTags": {
+				"pipeline_datafactory": {
+					"type": "Expression",
+					"value": "@linkedService().pipeline_datafactory"
+				},
+				"pipeline_name": {
+					"type": "Expression",
+					"value": "@linkedService().pipeline_name"
+				},
+				"pipeline_run_id": {
+					"type": "Expression",
+					"value": "@linkedService().pipeline_run_id"
+				},
+				"squad": {
+					"type": "Expression",
+					"value": "@linkedService().squad"
+				}
+			},
+			"newClusterInitScripts": [],
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxYjQ2ZTFjNy1hN2M5LTQ4MjktOTk4OC03YTVhNzZjNGI3OTkiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		}
+	}
+}

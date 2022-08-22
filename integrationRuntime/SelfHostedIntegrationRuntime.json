@@ -1,0 +1,12 @@
+{
+	"name": "SelfHostedIntegrationRuntime",
+	"properties": {
+		"type": "SelfHosted",
+		"typeProperties": {
+			"linkedInfo": {
+				"resourceId": "/subscriptions/cd7830ba-234d-4033-9d38-22306144b136/resourceGroups/rg-governanca-core-hlg/providers/Microsoft.DataFactory/factories/via-adf-governanca-core-hlg/integrationruntimes/SelfHostedIntegrationRuntime",
+				"authorizationType": "Rbac"
+			}
+		}
+	}
+}
