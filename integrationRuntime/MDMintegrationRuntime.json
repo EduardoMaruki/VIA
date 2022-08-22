@@ -1,0 +1,7 @@
+{
+	"name": "MDMintegrationRuntime",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "Processo de carga das tabelas para o MDM"
+	}
+}
